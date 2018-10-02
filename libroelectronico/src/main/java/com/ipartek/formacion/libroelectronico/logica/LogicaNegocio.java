@@ -1,5 +1,7 @@
 package com.ipartek.formacion.libroelectronico.logica;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 
@@ -36,5 +38,16 @@ public class LogicaNegocio {
 		}else {
 			return false;
 		}
+	}
+	
+	public static List<Integer> buscarTexto(String texto){
+		ArrayList<Integer> numerosPagina = new ArrayList<>();
+		
+		for(Pagina pagina: libro.values()) {
+			if (pagina.getContenido().contains(texto)) {
+				numerosPagina.add(pagina.getNumero());
+			}
+		}
+		return numerosPagina;
 	}
 }
