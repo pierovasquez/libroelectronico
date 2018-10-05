@@ -9,7 +9,7 @@
 		<a href="edicion">Escribir página</a>
 	</c:if>
 	<form action="index">
-		Ir a página <input type="number" name="pagina" />
+		Ir a página <input type="number" name="pagina" /><input type="submit" name="buscar" id="buscar" value="Ir"/>
 	</form>
 	
 	<%@ include file="/WEB-INF/includes/paginacion.jsp" %>

@@ -6,13 +6,19 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 
 import com.ipartek.formacion.libroelectronico.pojo.Pagina;
+import com.ipartek.formacion.libroelectronico.pojo.Usuario;
 
 public class LogicaNegocio {
 
 	private static TreeMap<Integer, Pagina> libro = new TreeMap<>();
-	
+	private static TreeMap<Integer, Usuario> usuarios = new TreeMap<>();
 	static {
-		libro.put(new Integer(1), new Pagina(1,"YO", "Erase una vez ..."));
+		libro.put(new Integer(1), new Pagina(1,"William", "Erase una vez ..."));
+		
+		usuarios.put(new Integer(1), new Usuario("William","Shakespeare"));
+		usuarios.put(new Integer(2), new Usuario("cervantes","saavedra"));
+		usuarios.put(new Integer(3), new Usuario("pablo","neruda"));
+		usuarios.put(new Integer(4), new Usuario("paulo","cohelo"));
 	}
 	
 	public static Pagina obtenerPagina(int numeroPagina) {
@@ -25,6 +31,15 @@ public class LogicaNegocio {
 		}
 		
 		return libro.get(numeroPagina);
+	}
+	
+	public static boolean validarUsuario(Usuario usuario) {
+		for (Usuario u : usuarios.values()) {
+			if (u.getNick().equals(usuario.getNick())) {
+				return u.getPassword().equals(usuario.getPassword());
+			}
+		}
+		return false;
 	}
 	
 	public static int obtenerNumeroPaginas() {

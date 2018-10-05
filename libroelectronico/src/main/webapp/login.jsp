@@ -10,9 +10,11 @@
 	<p>
 		<label for="password">Password</label>
 		<input type="password" name="password" id="password"/>
+		
 	</p>
 	<p>
 		<button>Login</button>
+		<span class="error">${errores}</span>
 	</p>
 </form>
 
